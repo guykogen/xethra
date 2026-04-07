@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Xethra | Engineering Next-Generation Digital Ecosystems",
   description:
     "Xethra LLC — high-end software development specializing in deep-tech and AI-driven applications. Full-stack development, AI integration, and UI/UX strategy.",
@@ -26,6 +28,23 @@ export const metadata: Metadata = {
     "Soundslikeme",
     "Agent4socials",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "Xethra",
+    title: "Xethra | Engineering Next-Generation Digital Ecosystems",
+    description:
+      "Xethra LLC — high-end software development specializing in deep-tech and AI-driven applications.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Xethra | Engineering Next-Generation Digital Ecosystems",
+    description:
+      "Xethra LLC — high-end software development specializing in deep-tech and AI-driven applications.",
+  },
 };
 
 export default function RootLayout({
